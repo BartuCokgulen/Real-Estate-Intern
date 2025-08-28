@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../config/config.php';
+require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
 
 // Check if user is logged in
@@ -166,4 +166,4 @@ $favorites = $stmt->fetchAll();
     </div>
 </div>
 
-<?php include 'includes/footer.php'; ?> 
+<?php include 'includes/footer.php'; ?>

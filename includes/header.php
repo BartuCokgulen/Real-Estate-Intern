@@ -179,38 +179,7 @@ init_session();
             color: red;
         }
         
-        /* Testimonials styles */
-        .testimonials-carousel .item {
-            padding: 15px;
-        }
-        .testimonials-carousel .card {
-            transition: transform 0.3s ease;
-        }
-        .testimonials-carousel .card:hover {
-            transform: translateY(-5px);
-        }
-        .owl-nav {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .owl-nav button {
-            width: 40px;
-            height: 40px;
-            border-radius: 50% !important;
-            background: #fff !important;
-            border: 1px solid #dee2e6 !important;
-            margin: 0 5px;
-            transition: all 0.3s ease;
-        }
-        .owl-nav button:hover {
-            background: #0d6efd !important;
-            border-color: #0d6efd !important;
-            color: #fff !important;
-        }
-        .owl-nav button span {
-            font-size: 24px;
-            line-height: 0;
-        }
+
     </style>
     
     <?php if (isset($extra_css)) echo $extra_css; ?>
@@ -219,29 +188,29 @@ init_session();
     <header>
         <nav class="navbar navbar-expand-lg custom-navbar">
             <div class="container">
-                <a class="navbar-brand" href="/realestate/">Real<span>Estate</span></a>
+                <a class="navbar-brand" href="/">Real<span>Estate</span></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : ''; ?>" href="/realestate/"><i class="bi bi-house-door me-1"></i> Home</a>
+                            <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : ''; ?>" href="/"><i class="bi bi-house-door me-1"></i> Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'properties.php') ? 'active' : ''; ?>" href="/realestate/properties.php"><i class="bi bi-building me-1"></i> Properties</a>
+                            <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'properties.php') ? 'active' : ''; ?>" href="/properties.php"><i class="bi bi-building me-1"></i> Properties</a>
                         </li>
                         <?php if (is_logged_in()): ?>
                         <li class="nav-item">
-                            <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'dashboard.php') ? 'active' : ''; ?>" href="/realestate/user/dashboard.php"><i class="bi bi-speedometer2 me-1"></i> Dashboard</a>
+                            <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'dashboard.php') ? 'active' : ''; ?>" href="/user/dashboard.php"><i class="bi bi-speedometer2 me-1"></i> Dashboard</a>
                         </li>
                         <?php endif; ?>
                         <li class="nav-item">
-                            <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'contact.php') ? 'active' : ''; ?>" href="/realestate/contact.php"><i class="bi bi-chat-dots me-1"></i> Contact</a>
+                            <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'contact.php') ? 'active' : ''; ?>" href="/contact.php"><i class="bi bi-chat-dots me-1"></i> Contact</a>
                         </li>
                         <?php if (is_admin()): ?>
                         <li class="nav-item">
-                            <a class="nav-link <?php echo (strpos($_SERVER['PHP_SELF'], '/admin/') !== false) ? 'active' : ''; ?>" href="/realestate/admin/"><i class="bi bi-gear me-1"></i> Admin Panel</a>
+                            <a class="nav-link <?php echo (strpos($_SERVER['PHP_SELF'], '/admin/') !== false) ? 'active' : ''; ?>" href="/admin/"><i class="bi bi-gear me-1"></i> Admin Panel</a>
                         </li>
                         <?php endif; ?>
                     </ul>
@@ -255,20 +224,20 @@ init_session();
                                     <span class="d-none d-md-inline"><?php echo htmlspecialchars($_SESSION['username']); ?></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="/realestate/user/dashboard.php"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
-                                    <li><a class="dropdown-item" href="/realestate/favorites.php"><i class="bi bi-heart"></i> Favorites</a></li>
-                                    <li><a class="dropdown-item" href="/realestate/my-messages.php"><i class="bi bi-envelope"></i> Messages</a></li>
-                                    <li><a class="dropdown-item" href="/realestate/my-properties.php"><i class="bi bi-houses"></i> My Properties</a></li>
+                                    <li><a class="dropdown-item" href="/user/dashboard.php"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="/favorites.php"><i class="bi bi-heart"></i> Favorites</a></li>
+                                    <li><a class="dropdown-item" href="/my-messages.php"><i class="bi bi-envelope"></i> Messages</a></li>
+                                    <li><a class="dropdown-item" href="/my-properties.php"><i class="bi bi-houses"></i> My Properties</a></li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="/realestate/logout.php"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+                                    <li><a class="dropdown-item" href="/logout.php"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
                                 </ul>
                             </li>
                         <?php else: ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="/realestate/login.php"><i class="bi bi-box-arrow-in-right me-1"></i> Login</a>
+                                <a class="nav-link" href="/login.php"><i class="bi bi-box-arrow-in-right me-1"></i> Login</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/realestate/register.php"><i class="bi bi-person-plus me-1"></i> Register</a>
+                                <a class="nav-link" href="/register.php"><i class="bi bi-person-plus me-1"></i> Register</a>
                             </li>
                         <?php endif; ?>
                     </ul>
@@ -337,9 +306,9 @@ init_session();
             var currentLocation = window.location.pathname;
             $('.navbar-nav .nav-link').each(function() {
                 var linkHref = $(this).attr('href');
-                if (currentLocation.indexOf(linkHref) !== -1 && linkHref !== '/realestate/') {
+                if (currentLocation.indexOf(linkHref) !== -1 && linkHref !== '/') {
                     $(this).addClass('active');
-                } else if (currentLocation === '/realestate/' && linkHref === '/realestate/') {
+                } else if (currentLocation === '/' && linkHref === '/') {
                     $(this).addClass('active');
                 }
             });

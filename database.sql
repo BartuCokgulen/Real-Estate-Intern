@@ -86,17 +86,7 @@ CREATE TABLE contact_messages (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Testimonials table
-CREATE TABLE testimonials (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,
-    name VARCHAR(100),
-    location VARCHAR(100),
-    content TEXT,
-    status ENUM('pending', 'approved', 'rejected') DEFAULT 'pending',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id)
-);
+
 
 -- Insert sample data
 -- Insert users
@@ -111,14 +101,10 @@ INSERT INTO properties (user_id, title, description, type, status, price, locati
 (2, 'Luxury Villa with Pool', 'Spacious villa with private pool', 'villa', 'active', 750000, 'Beachfront', 'Antalya', 4, 3),
 (3, 'Cozy House with Garden', 'Perfect family house with beautiful garden', 'house', 'active', 350000, 'Suburban', 'Ankara', 3, 2);
 
--- Insert testimonials
-INSERT INTO testimonials (user_id, name, location, content, status) VALUES
-(2, 'John Doe', 'Istanbul', 'Great experience with this real estate agency! Found my perfect home.', 'approved'),
-(3, 'Jane Smith', 'Ankara', 'Professional service and excellent properties. Highly recommended!', 'approved'),
-(2, 'John Doe', 'Istanbul', 'Second time using their service, always satisfied!', 'approved');
+
 
 -- Insert property inquiries
 INSERT INTO property_inquiries (property_id, name, email, phone, message, status) VALUES
 (1, 'Mike Wilson', 'mike@example.com', '+90 555 123 4567', 'I am interested in this apartment. When can I view it?', 'new'),
 (2, 'Sarah Johnson', 'sarah@example.com', '+90 555 987 6543', 'Please provide more details about the villa.', 'read'),
-(3, 'David Brown', 'david@example.com', '+90 555 456 7890', 'Is the price negotiable?', 'replied'); 
+(3, 'David Brown', 'david@example.com', '+90 555 456 7890', 'Is the price negotiable?', 'replied');
